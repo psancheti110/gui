@@ -124,6 +124,11 @@ void OptionsModel::Init(bool resetSettings)
     if (!gArgs.SoftSetArg("-signer", settings.value("external_signer_path").toString().toStdString())) {
         addOverriddenOption("-signer");
     }
+
+    if (!settings.contains("SubFeeFromAmount")) {
+        settings.setValue("SubFeeFromAmount", false);
+    }
+    m_sub_fee_from_amount = settings.value("SubFeeFromAmount", false).toBool();
 #endif
 
     // Network
@@ -346,6 +351,8 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return m_use_embedded_monospaced_font;
         case CoinControlFeatures:
             return fCoinControlFeatures;
+        case SubFeeFromAmount:
+            return m_sub_fee_from_amount;
         case Prune:
             return settings.value("bPrune");
         case PruneSize:
@@ -486,6 +493,11 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
             fCoinControlFeatures = value.toBool();
             settings.setValue("fCoinControlFeatures", fCoinControlFeatures);
             Q_EMIT coinControlFeaturesChanged(fCoinControlFeatures);
+            break;
+        case SubFeeFromAmount:
+            m_sub_fee_from_amount = value.toBool();
+            settings.setValue("SubFeeFromAmount", m_sub_fee_from_amount);
+            Q_EMIT SubFeeFromAmountChanged(m_sub_fee_from_amount);
             break;
         case Prune:
             if (settings.value("bPrune") != value) {

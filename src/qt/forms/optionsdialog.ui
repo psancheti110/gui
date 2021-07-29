@@ -207,6 +207,16 @@
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
+           <widget class="QCheckBox" name="subFeeFromAmount">
+            <property name="toolTip">
+             <string extracomment="This is a toolTip, Located at Options dialog under the Wallet tab. Select default setting for subtract the fee from the amount checkbox while creating new recipients.">Default setting to whether Subtact Fee From Amount or not.</string>
+            </property>
+            <property name="text">
+             <string extracomment="Located at Options dialog under the Wallet tab. Select default setting for subtract the fee from the amount checkbox while creating new recipients.">Subtract &amp;Fee From Amount</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QCheckBox" name="coinControlFeatures">
             <property name="toolTip">
              <string>Whether to show coin control features or not.</string>
