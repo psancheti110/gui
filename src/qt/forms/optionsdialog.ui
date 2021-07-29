@@ -207,6 +207,16 @@
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
+           <widget class="QCheckBox" name="subFeeFromAmount">
+            <property name="toolTip">
+             <string>Whether to Subtact Fee From Amount or not.</string>
+            </property>
+            <property name="text">
+             <string>Subtract &amp;Fee From Amount</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QCheckBox" name="coinControlFeatures">
             <property name="toolTip">
              <string>Whether to show coin control features or not.</string>
